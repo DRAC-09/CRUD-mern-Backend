@@ -5,11 +5,17 @@ import cors from "cors";
 
 import authRoutes from "./routers/auth.routes.js";
 import taskRoutes from "./routers/tasks.routes.js";
+import { PORT_FRONTEND } from "./config.js";
 
 const app = express();
 
 // Middlewares
-app.use(cors());
+app.use(
+  cors({
+    origin: `http://localhost:${PORT_FRONTEND}`,
+    credentials: true,
+  })
+);
 app.use(morgan("dev"));
 app.use(cookieParser());
 app.use(express.json());
