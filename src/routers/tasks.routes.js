@@ -14,7 +14,7 @@ const router = Router();
 
 router.get("/tasks", authRequired, getTasks);
 router.post(
-  "/task",
+  "/tasks",
   authRequired,
   validateSchema(createTaskSchema),
   createTask
