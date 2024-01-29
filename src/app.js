@@ -7,12 +7,11 @@ import authRoutes from "./routers/auth.routes.js";
 import taskRoutes from "./routers/tasks.routes.js";
 
 const app = express();
-const lista = [`http://localhost:${process.env.PORT_FRONTEND}`];
 
 // Middlewares
 app.use(
   cors({
-    origin: lista,
+    origin: `http://localhost:5173/`,
     credentials: true,
   })
 );
