@@ -7,11 +7,15 @@ import authRoutes from "./routers/auth.routes.js";
 import taskRoutes from "./routers/tasks.routes.js";
 
 const app = express();
+const lista = [
+  "https://task-frontend-mern.vercel.app/",
+  `http://localhost:${process.env.PORT_FRONTEND}`,
+];
 
 // Middlewares
 app.use(
   cors({
-    origin: "https://task-frontend-mern.vercel.app/",
+    origin: lista,
     credentials: true,
   })
 );
