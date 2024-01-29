@@ -4,7 +4,7 @@ export const getTasks = async (req, res) => {
   try {
     const tasks = await Task.find({
       user: req.user.id,
-    }).populate("user"); //Muestar tambien toda la informacion del usurio
+    }).populate("user"); //Muestra también toda la información del usuario
     res.json(tasks);
   } catch (error) {
     return res.status(404).json({ message: "Something went wrong" });

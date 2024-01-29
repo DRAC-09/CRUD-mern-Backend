@@ -5,14 +5,14 @@ import cors from "cors";
 
 import authRoutes from "./routers/auth.routes.js";
 import taskRoutes from "./routers/tasks.routes.js";
-import { PORT_FRONTEND } from "./config.js";
 
 const app = express();
+const lista = [`http://localhost:${process.env.PORT_FRONTEND}`];
 
 // Middlewares
 app.use(
   cors({
-    origin: `http://localhost:${PORT_FRONTEND}`,
+    origin: lista,
     credentials: true,
   })
 );
