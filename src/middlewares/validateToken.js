@@ -1,7 +1,7 @@
 import jwt from "jsonwebtoken";
 
 export const authRequired = (req, res, next) => {
-  const { token } = req.cookies;
+  const { token } = req.headers;
   const requestData = {
     headers: req.headers,
     cookies: req.cookies,
