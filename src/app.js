@@ -23,4 +23,9 @@ app.use(express.json());
 app.use("/api/", authRoutes);
 app.use("/api/", taskRoutes);
 
+//Messaje
+app.get("/api", function (req, res) {
+  res.send("Servidor Funcionando");
+});
+
 export default app;

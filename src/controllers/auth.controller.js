@@ -80,11 +80,7 @@ export const profile = async (req, res) => {
 
 export const verifyToken = async (req, res) => {
   const { token } = req.cookies;
-  const requestData = {
-    headers: req.headers,
-    cookies: req.cookies,
-  };
-  if (!token) return res.status(401).json({ requestData });
+  if (!token) return res.status(401).json({ message: "Unauthorized code:0" });
   jwt.verify(token, process.env.TOKEN_SECRET, async (err, user) => {
     if (err) return res.status(401).json({ message: "Unauthorized code:1" });
     const userFound = await User.findById(user.id);
