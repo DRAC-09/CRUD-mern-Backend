@@ -79,7 +79,7 @@ export const profile = async (req, res) => {
 };
 
 export const verifyToken = async (req, res) => {
-  const { token } = req.cookies;
+  const { token } = req.headers;
   if (!token) return res.status(401).json({ message: "Unauthorized code:0" });
   jwt.verify(token, process.env.TOKEN_SECRET, async (err, user) => {
     if (err) return res.status(401).json({ message: "Unauthorized code:1" });
