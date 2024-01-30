@@ -66,31 +66,31 @@ export const logout = (req, res) => {
   return res.sendStatus(200);
 };
 
-export const profile = async (req, res) => {
-  const userFound = await User.findById(req.user.id);
-  if (!userFound) return res.status(400).json({ message: "User no found" });
-  return res.json({
-    id: userFound._id,
-    username: userFound.username,
-    email: userFound.email,
-    createdAt: userFound.createdAt,
-    updatedAt: userFound.updatedAt,
-  });
-};
+// export const profile = async (req, res) => {
+//   const userFound = await User.findById(req.user.id);
+//   if (!userFound) return res.status(400).json({ message: "User no found" });
+//   return res.json({
+//     id: userFound._id,
+//     username: userFound.username,
+//     email: userFound.email,
+//     createdAt: userFound.createdAt,
+//     updatedAt: userFound.updatedAt,
+//   });
+// };
 
-export const verifyToken = async (req, res) => {
-  const { token } = req.headers;
-  if (!token) return res.status(401).json({ message: "Unauthorized code:0" });
-  jwt.verify(token, process.env.TOKEN_SECRET, async (err, user) => {
-    if (err) return res.status(401).json({ message: "Unauthorized code:1" });
-    const userFound = await User.findById(user.id);
-    if (!userFound)
-      return res.status(401).json({ message: "Unauthorized code:2" });
+// export const verifyToken = async (req, res) => {
+//   const { token } = req.headers;
+//   if (!token) return res.status(401).json({ message: "Unauthorized code:0" });
+//   jwt.verify(token, process.env.TOKEN_SECRET, async (err, user) => {
+//     if (err) return res.status(401).json({ message: "Unauthorized code:1" });
+//     const userFound = await User.findById(user.id);
+//     if (!userFound)
+//       return res.status(401).json({ message: "Unauthorized code:2" });
 
-    return res.json({
-      id: userFound._id,
-      username: userFound.username,
-      email: userFound.email,
-    });
-  });
-};
+//     return res.json({
+//       id: userFound._id,
+//       username: userFound.username,
+//       email: userFound.email,
+//     });
+//   });
+// };
